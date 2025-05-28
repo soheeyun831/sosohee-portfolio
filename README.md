@@ -11,7 +11,6 @@ develop&design by. [soheeYun](https://www.figma.com/design/UQ3v5jWzDGYzEtwAovXL1
 - react
 - typescript
 - pnpm
-- tailwindcss
 
 
 ## 구경하실 분들은
