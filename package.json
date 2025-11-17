@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint ../../Downloads/sohee_portfolio",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -16,7 +16,8 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.1",
     "styled-components": "^6.1.18",
-    "styled-reset": "^4.5.2"
+    "styled-reset": "^4.5.2",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

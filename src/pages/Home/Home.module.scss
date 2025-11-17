@@ -1,0 +1,330 @@
+section {
+  background-color: #000;
+}
+.homeThumbnail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100vh - 92px);
+  padding-top: 169px;
+  .mainWrap {
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    .mainTextArea {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      .mainTitle {
+        font-size: 128px;
+        color: #ffcc00;
+        font-family: 'Micro 5';
+        line-height: 100px;
+      }
+      .mainDesc {
+        font-size: 15px;
+        color: #fff;
+        line-height: 20px;
+      }
+    }
+    .mainImageArea {
+      width: 427px;
+      height: 422px;
+      background-color: red;
+    }
+  }
+  .skillWrap {
+    overflow: hidden;
+    width: 100%;
+
+    .skillList {
+      height: 57px;
+      display: flex;
+      justify-content: center;
+      color: white;
+      gap: 48px;
+      padding: 8px 0;
+      animation: slideLeftRight 20s linear infinite;
+
+      & > li {
+        height: 100%;
+        white-space: nowrap;
+
+        & > :nth-child(odd) {
+          display: flex;
+          align-items: flex-start;
+        }
+        &:nth-child(even) {
+          display: flex;
+          align-items: flex-end;
+        }
+      }
+    }
+  }
+}
+.introSection {
+  background-color: white;
+  padding: 80px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  & > h3 {
+    font-size: 24px;
+    color: #000;
+    margin-bottom: 24px;
+  }
+  & > p {
+    width: fit-content;
+    text-align-last: center;
+    color: #999999;
+    font-size: 15px;
+    line-height: 20px;
+    margin-bottom: 40px;
+    letter-spacing: -0.5px;
+  }
+  .introBtnWrap {
+    display: flex;
+    gap: 8px;
+    & > button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid black;
+      width: fit-content;
+      height: 44px;
+      padding: 0 12px;
+      font-size: 15px;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
+}
+.careerSection {
+  width: 100%;
+  height: fit-content;
+  padding-bottom: 80px;
+  background-color: #e6e6e6;
+  display: flex;
+  justify-content: center;
+  gap: 92px;
+  .nameTagWrap {
+    width: 180px;
+    height: 527px;
+    background-color: red;
+  }
+  .careerInfo {
+    padding-top: 100px;
+    & > p {
+      &:first-child {
+        font-size: 20px;
+        color: #000;
+        margin-bottom: 6px;
+      }
+      &:not(:first-child) {
+        font-size: 128px;
+        line-height: 100px;
+        font-family: 'Micro 5';
+      }
+    }
+    .careerCarousel {
+      position: relative;
+      width: 325px;
+      height: 127px;
+      margin-top: 40px;
+      background-color: tomato;
+      & > button {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+        &:first-child {
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+        }
+        &:nth-child(2) {
+          top: 50%;
+          right: 0;
+          transform: translateY(-50%) rotate(180deg);
+        }
+      }
+    }
+  }
+}
+.portfolioSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: fit-content;
+  padding-top: 100px;
+  padding-bottom: 120px;
+  background-color: white;
+  & > h3 {
+    font-size: 48px;
+    font-family: 'Micro 5';
+    letter-spacing: 5px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+    margin-bottom: 20px;
+  }
+  .portfolioMenu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    & > li {
+      font-size: 15px;
+    }
+    .divider {
+      width: 1px;
+      height: 12px;
+      background-color: #000;
+    }
+  }
+  .portfolioList {
+    display: flex;
+    gap: 20px;
+    width: fit-content;
+    height: 760px;
+    .portfolioLeftCol,
+    .portfolioRightCol {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      width: fit-content;
+      height: 100%;
+      .portfolioItem {
+        width: 480px;
+        height: 220px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border: 1px solid #000;
+        .portfolioImage {
+          width: 180px;
+          height: 180px;
+          background-color: red;
+          flex-shrink: 0;
+          flex-grow: 0;
+          border-radius: 100%;
+          overflow: hidden;
+        }
+        .portfolioDetail {
+          flex-grow: 1;
+          height: fit-content;
+          & > h6 {
+            font-size: 15px;
+            margin-bottom: 16px;
+          }
+          & > p {
+            font-size: 14px;
+            color: #999999;
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
+    .portfolioLeftCol {
+      justify-content: flex-start;
+    }
+    .portfolioRightCol {
+      justify-content: flex-end;
+    }
+  }
+}
+.skillSection {
+  width: 100%;
+  height: fit-content;
+  padding-top: 120px;
+  padding-bottom: 150px;
+  background-color: #35374c;
+}
+.faqSection {
+  width: 100%;
+  height: fit-content;
+  padding-top: 50px;
+  padding-bottom: 120px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  .faqImg {
+    width: 512px;
+    height: 512px;
+    background-color: red;
+    flex-shrink: 0;
+  }
+  .faqContent {
+    width: 428px;
+    padding-top: 70px;
+    height: fit-content;
+    & > p {
+      font-size: 48px;
+      font-family: 'Micro 5';
+      margin-bottom: 20px;
+    }
+    .faqList {
+      width: 100%;
+      height: fit-content;
+      border-top: 1px solid #000;
+      .faqItem{
+        width: 100%;
+        &>p{
+          font-size: 15px;
+          padding: 15px 12px;
+          position: relative;
+          user-select: none;
+          cursor: pointer;
+          .faqIcon{
+            cursor: inherit;
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            &.opened{
+              transform: translateY(-50%) rotate(180deg);
+            }
+          }
+
+        }
+        &>pre{
+          user-select: none;
+          width: 100%;
+          text-wrap: wrap;
+          word-break: break-all;
+          padding: 10px 13px 20px;
+          color: #999999;
+          font-size: 14px;
+          line-height: 18px;
+        }
+        border-bottom: 1px solid #000;
+      }
+    }
+  }
+}
+.contactMeSection {
+  width: 100%;
+  height: fit-content;
+  padding: 80px 0;
+  background-color: #2745f2;
+}
+@keyframes slideLeftRight {
+  0%,
+  50%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-25%);
+  }
+  75% {
+    transform: translate(25%);
+  }
+}

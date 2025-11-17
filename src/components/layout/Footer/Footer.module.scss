@@ -1,0 +1,14 @@
+.footerWrap{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #FFFFFF;
+  padding: 20px 0;
+  &>p{
+    color: #000;
+    font-size: 15px;
+  }
+}

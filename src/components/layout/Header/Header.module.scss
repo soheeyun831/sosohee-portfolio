@@ -1,4 +1,4 @@
-.main-header {
+.mainHeader {
   width: 100%;
   padding: 20px 40px;
   display: flex;
@@ -7,20 +7,22 @@
   box-sizing: border-box;
   background-color: #000; // Change to your desired background color
 
-  .logo-container {
+  .logoContainer {
     .logo {
-      width: 5rem;
-      height: 5rem;
+      width: 50px;
+      height: 50px;
     }
   }
 
-  .pc-nav {
-    .nav-list {
+  .pcNav {
+    .navList {
       display: flex;
       gap: 3rem;
       align-items: center;
-      font-size: 1.5rem;
-
+      font-size: 15px;
+      .active{
+        color: #ffcc00;
+      }
       a {
         color: #fff; // Change to your desired text color
         text-decoration: none;
@@ -31,7 +33,7 @@
         }
       }
 
-      .language-selector {
+      .languageSelector {
         position: relative;
         cursor: pointer;
 
@@ -44,7 +46,7 @@
           }
         }
 
-        .language-dropdown {
+        .languageDropdown {
           display: none;
           position: absolute;
           top: 3.2rem;
@@ -92,7 +94,7 @@
     }
   }
 
-  .mobile-nav {
+  .mobileNav {
     width: 2.4rem;
     height: 2.4rem;
     display: none;
