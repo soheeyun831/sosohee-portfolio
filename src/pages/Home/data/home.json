@@ -1,0 +1,88 @@
+{
+  "simple_skills": [
+    "Vue",
+    "Nuxt",
+    "React",
+    "Javascript",
+    "Typescript",
+    "SCSS",
+    "Git",
+    "Jira",
+    "Figma",
+    "jQuery"
+  ],
+  "skills": [
+    {
+      "name": "Vue.js  2,3",
+      "level": 4
+    },
+    {
+      "name": "Nuxt.js  2,3",
+      "level": 3
+    },
+    {
+      "name": "Vanilla JS",
+      "level": 4
+    },
+    {
+      "name": "TypeScript",
+      "level": 3
+    },
+    {
+      "name": "SCSS",
+      "level": 4
+    },
+    {
+      "name": "HTML5",
+      "level": 4
+    },
+    {
+      "name": "React.js",
+      "level": 1
+    },
+    {
+      "name": "jQuery",
+      "level": 2
+    },
+    {
+      "name": "Git",
+      "level": 2
+    },
+    {
+      "name": "Figma",
+      "level": 3
+    }
+  ],
+  "faq": [
+    {
+      "code": "selfIntroduction",
+      "id": 1,
+      "isOpen": false
+    },
+    {
+      "code": "conversion",
+      "id": 2,
+      "isOpen": false
+    },
+    {
+      "code": "circumstances",
+      "id": 3,
+      "isOpen": false
+    },
+    {
+      "code": "studyMethod",
+      "id": 4,
+      "isOpen": false
+    },
+    {
+      "code": "value",
+      "id": 5,
+      "isOpen": false
+    },
+    {
+      "code": "difficult",
+      "id": 6,
+      "isOpen": false
+    }
+  ]
+}

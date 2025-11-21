@@ -1,13 +1,16 @@
 section {
-  background-color: #000;
 }
 .homeThumbnail {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   width: 100%;
   height: calc(100vh - 92px);
-  padding-top: 169px;
+  position: relative;
+  display: flex;
+  padding-bottom: 5.7rem;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  background-color: #000;
+
   .mainWrap {
     width: 100%;
     height: fit-content;
@@ -20,10 +23,10 @@ section {
       flex-direction: column;
       gap: 40px;
       .mainTitle {
-        font-size: 128px;
+        font-size: 98px;
         color: #ffcc00;
-        font-family: 'Micro 5';
-        line-height: 100px;
+        font-family: 'Micro 5', Arial, Helvetica, sans-serif;
+        line-height: 0.7;
       }
       .mainDesc {
         font-size: 15px;
@@ -34,25 +37,27 @@ section {
     .mainImageArea {
       width: 427px;
       height: 422px;
-      background-color: red;
     }
   }
   .skillWrap {
     overflow: hidden;
     width: 100%;
+    position: absolute;
+    bottom: 0;
 
     .skillList {
-      height: 57px;
+      height: 60px;
       display: flex;
       justify-content: center;
       color: white;
       gap: 48px;
-      padding: 8px 0;
-      animation: slideLeftRight 20s linear infinite;
+      padding: 8px 0 16px;
+      animation: slideLeftRight 10s linear infinite;
 
       & > li {
         height: 100%;
         white-space: nowrap;
+        font-size: 12px;
 
         & > :nth-child(odd) {
           display: flex;
@@ -114,7 +119,9 @@ section {
   .nameTagWrap {
     width: 180px;
     height: 527px;
-    background-color: red;
+    background-image: url("/src/assets/images/home/employeeCard.png");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
   .careerInfo {
     padding-top: 100px;
@@ -168,7 +175,7 @@ section {
   background-color: white;
   & > h3 {
     font-size: 48px;
-    font-family: 'Micro 5';
+    font-family: 'Micro 5', Arial, Helvetica, sans-serif;
     letter-spacing: 5px;
     text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
     margin-bottom: 20px;
@@ -210,7 +217,8 @@ section {
         .portfolioImage {
           width: 180px;
           height: 180px;
-          background-color: red;
+          background-image: url("/src/assets/images/common/logo.png");
+
           flex-shrink: 0;
           flex-grow: 0;
           border-radius: 100%;
@@ -242,27 +250,115 @@ section {
 .skillSection {
   width: 100%;
   height: fit-content;
-  padding-top: 120px;
-  padding-bottom: 150px;
+  padding: 120px 0 150px;
   background-color: #35374c;
+
+
+  & > h3 {
+    margin: 0 auto 20px;
+    color: #fff;
+    font-size: 48px;
+    text-align: center;
+    font-family: 'Micro 5', Arial, Helvetica, sans-serif;
+    letter-spacing: 5px;
+    text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  }
+  .skillArea {
+    width: 100%;
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 80px;
+
+    .skillListArea {
+      .skillList {
+        width: 320px;
+        .skillItem {
+          display: flex;
+          color: #fff;
+          font-size: 15px;
+          line-height: 40px;
+          justify-content: space-between;
+          b {
+            font-weight: 700;
+          }
+
+          &:last-child {
+            color: #FFCC00;
+          }
+        }
+      }
+    }
+    .skillImg {
+      width: 560px;
+      height: 350px;
+      position: relative;
+      background-image: url("/src/assets/images/home/skillBackground.png");
+      background-repeat: no-repeat;
+      background-size: 500px auto;
+      background-position-x: left;
+      background-position-y: bottom;
+      .skillVue {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 130px;
+        height: 130px;
+        transform: translateX(-60%);
+
+      }
+      .skillSass {
+        position: absolute;
+        left: 16px;
+        bottom: 128px;
+        width: 124px;
+        height: 93px;
+
+
+      }
+      .skillJs {
+        position: absolute;
+        right: 20px;
+        bottom: 90px;
+        width: 116px;
+        height: 116px;
+      }
+      .skillTs {
+        position: absolute;
+        right: -10px;
+        bottom: 50px;
+        width: 84px;
+        height: 84px;
+        transform: rotate(-10deg);
+
+      }
+    }
+  }
+
+
 }
 .faqSection {
   width: 100%;
+  max-width: 980px;
   height: fit-content;
-  padding-top: 50px;
-  padding-bottom: 120px;
-  background-color: #ffffff;
+  padding: 60px 0 120px;
+  margin: 0 auto;
   display: flex;
   justify-content: center;
   gap: 30px;
   .faqImg {
-    width: 512px;
-    height: 512px;
-    background-color: red;
+    width: calc(50% - 20px);
     flex-shrink: 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
   }
   .faqContent {
-    width: 428px;
+    width: calc(50% - 20px);
     padding-top: 70px;
     height: fit-content;
     & > p {
@@ -316,15 +412,11 @@ section {
   background-color: #2745f2;
 }
 @keyframes slideLeftRight {
-  0%,
-  50%,
+
+  0% {
+    transform: translateX(0%);
+  }
   100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-25%);
-  }
-  75% {
-    transform: translate(25%);
+    transform:translateX(-800.5px);
   }
 }

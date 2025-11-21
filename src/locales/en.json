@@ -1,0 +1,56 @@
+{
+  "home": {
+    "mainInfo": "Hello. I'm Sohee Yun,\n a front-end developer who prioritizes user experience above all else,\nbalancing convenience with aesthetic sensibility.",
+    "info": {
+      "title": "Hello. I'm Sohee Yun, a web front-end developer.",
+      "description": "While studying UI/UX design with great interest,\nI developed a passion to not just design but also implement things myself,\nso I learned front-end development through a combination of self-study and academy courses.\nThat's how I took my first steps as a developer, and since then,\nI've gained practical experience in various environments.",
+      "actionButton1": "Resume Download",
+      "actionButton2": "Too much information"
+    },
+    "skillLastMessage" : "Ready to work with you",
+    "faq": {
+      "selfIntroduction": {
+        "title": "자기소개",
+        "content": "UI/UX 전공인 프론트엔드 개발자 윤소희입니다..\n제가 디자인을 알고, 마크업을 아는 만큼 \n디자이너와 UI/UX 관련 커뮤니케이션이 쉽게 오갑니다. \n디자이너들이 지금까지 개발을 몰라 답답했던 부분을 설명하며 이해하는 것을 돕고 그들이 원하는 만큼 아웃풋을 만들기 위해 노력합니다. \n기능적으로 어려운 일이 생겨도 디자이너의 맘을 알기에 안된다는 말보다는 차선 안을 제시합니다. \nFront-end 개발자가 디자인 출신인 것은 장점이라 생각하지만, \n'웹 디자인 출신 개발자'라는 말보다는 \n'디자인을 이해하는 Front-End 개발자'가 되기 위해 학점은행제를 통한 컴퓨터공학 학사학위를 공부 중입니다",
+        "id": 1,
+        "isOpen": false
+      },
+      "conversion": {
+        "title": "디자인에서 개발로 전향된 사유",
+        "content": "",
+        "id": 2,
+        "isOpen": false
+      },
+      "circumstances": {
+        "title": "프로그래밍을 시작한 경위",
+        "content": "",
+        "id": 3,
+        "isOpen": false
+      },
+      "studyMethod": {
+        "title": "본인의 개발 학습 방법",
+        "content": "",
+        "id": 4,
+        "isOpen": false
+      },
+      "value": {
+        "title": "업무 경험중 가장 가치가 있었던 경험",
+        "content": "",
+        "id": 5,
+        "isOpen": false
+      },
+      "difficult": {
+        "title": "어려움을 극복하기 위한 방법",
+        "content": "",
+        "id": 6,
+        "isOpen": false
+      }
+    }
+  },
+  "greeting": "Hello",
+  "welcome": "Welcome to my blog",
+  "about": {
+    "title": "About Me",
+    "description": "I'm UX engineer, Yun Do-gi."
+  }
+}
