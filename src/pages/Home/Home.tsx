@@ -9,6 +9,12 @@ export default function Home() {
   const { t, i18n } = useTranslation();
 
   const [career, setCareer] = useState<string>(/*Y-M*/ '');
+  const [isTmiDropdownOpen, setTmiDropdown] = useState<boolean>(false);
+
+  const openTmiDropdown = () => {
+    setTmiDropdown(prev => !prev); // 이전 상태 기반으로 안전하게 토글
+  };
+
   const [faqList, setFaqList] = useState<
     {
       code: string;
@@ -16,12 +22,14 @@ export default function Home() {
       isOpen: boolean;
     }[]
   >(data.faq);
+
   useEffect(() => {
     const startDate = moment('2019-04', 'YYYY-MM');
     const today = moment();
     const duration = moment.duration(today.diff(startDate));
     setCareer(`${duration.years()}-${duration.months()}`);
   }, []);
+
   const toggleFaq = (id: number) => () => {
     setFaqList((prev) => {
       return prev.map((faq) => {
@@ -35,6 +43,7 @@ export default function Home() {
       });
     });
   };
+
   return (
     <section>
       <article className={S.homeThumbnail}>
@@ -74,22 +83,31 @@ export default function Home() {
         </p>
         <div className={S.introBtnWrap}>
           <button>{t('home.info.actionButton1')}</button>
-          <button>
+          <button className={`${S.tmiSelector} ${isTmiDropdownOpen ? S.opened : ''}`}
+                  onClick={openTmiDropdown}>
             {t('home.info.actionButton2')}
-            {/*<span*/}
-            {/*    className={`${S.faqIcon} ${faq.isOpen ? S.opened : ''}`}>*/}
-                    <svg
-                        width="11"
-                        height="9"
-                        viewBox="0 0 11 9"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                      <path
-                          d="M5.19629 9L0.000136542 2.51244e-08L10.3924 -8.834e-07L5.19629 9Z"
-                          fill="black"
-                      />
-                    </svg>
-                  {/*</span>*/}
+            <div className={S.tmiIcon}>
+              <svg
+                  width="11"
+                  height="9"
+                  viewBox="0 0 11 9"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M5.19629 9L0.000136542 2.51244e-08L10.3924 -8.834e-07L5.19629 9Z"
+                    fill="black"
+                />
+              </svg>
+            </div>
+            <div className={S.tmiDropdown}>
+              <ul>
+                <li>{t('home.info.actionButton2-1')}</li>
+                <li>{t('home.info.actionButton2-2')}</li>
+                <li>{t('home.info.actionButton2-3')}</li>
+                <li>{t('home.info.actionButton2-4')}</li>
+                <li>{t('home.info.actionButton2-5')}</li>
+              </ul>
+            </div>
           </button>
         </div>
       </article>
@@ -99,7 +117,7 @@ export default function Home() {
           <img></img>
         </div>
         <div className={S.careerInfo}>
-          <p>제가 프론트엔드로 일한 지</p>
+          <p>{t('home.careerSubTitle')}</p>
           <p>{career.split('-')[0]}years</p>
           <p>{career.split('-')[1]}month</p>
           <div className={S.careerCarousel}>
@@ -138,50 +156,55 @@ export default function Home() {
       </article>
 
       <article className={S.portfolioSection}>
-        <h3>Portfolio</h3>
-        <ul className={S.portfolioMenu}>
-          <li>프론트엔드</li>
-          <div className={S.divider}></div>
-          <li>퍼블리싱</li>
-          <div className={S.divider}></div>
-          <li>디자인</li>
-        </ul>
-        <div className={S.portfolioList}>
-          <ul className={S.portfolioLeftCol}>
-            {[0, 0, 0].map(() => (
-              <li className={S.portfolioItem}>
-                <div className={S.portfolioImage}>
-                  <img />
-                </div>
-                <div className={S.portfolioDetail}>
-                  <h6>this Site ^_^!</h6>
-                  <p>Front-end | Publish | Design</p>
-                  <p>2025.01 ~ 2025.05</p>
-                  <p>업체 : 제 자신</p>
-                  <p>Skill : React</p>
-                </div>
-              </li>
-            ))}
+        <div className={S.portfolioWrap}>
+          <h3>Portfolio</h3>
+          <ul className={S.portfolioMenu}>
+            <li>{t('home.portfolio.type1')}</li>
+            <div className={S.divider}></div>
+            <li>{t('home.portfolio.type2')}</li>
+            <div className={S.divider}></div>
+            <li>{t('home.portfolio.type3')}</li>
           </ul>
-          <ul className={S.portfolioRightCol}>
-            {[0, 0, 0].map(() => (
-              <li className={S.portfolioItem}>
-                <div className={S.portfolioImage}>
-                  <img
-                    src="https://via.placeholder.com/150"
-                    alt="Portfolio Thumbnail"
-                  />
-                </div>
-                <div>
-                  <h6>this Site ^_^!</h6>
-                  <p>Front-end | Publish | Design</p>
-                  <p>2025.01 ~ 2025.05</p>
-                  <p>업체 : 제 자신</p>
-                  <p>Skill : React</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div className={S.portfolioList}>
+            <ul className={S.portfolioLeftCol}>
+              {[0, 0, 0].map(() => (
+                <li className={S.portfolioItem}>
+                  <div className={S.portfolioImage}>
+                    <img />
+                  </div>
+                  <div className={S.portfolioDetail}>
+                    <h6>this Site ^_^!</h6>
+                    <p>Front-end | Publish | Design</p>
+                    <p>2025.01 ~ 2025.05</p>
+                    <p>업체 : 제 자신</p>
+                    <p>Skill : React</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <ul className={S.portfolioRightCol}>
+              {[0, 0, 0].map(() => (
+                <li className={S.portfolioItem}>
+                  <div className={S.portfolioImage}>
+                    <img
+                      src="https://via.placeholder.com/150"
+                      alt="Portfolio Thumbnail"
+                    />
+                  </div>
+                  <div>
+                    <h6>this Site ^_^!</h6>
+                    <p>Front-end | Publish | Design</p>
+                    <p>2025.01 ~ 2025.05</p>
+                    <p>업체 : 제 자신</p>
+                    <p>Skill : React</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <button>{t('home.portfolio.more')}</button>
+          </div>
         </div>
       </article>
 

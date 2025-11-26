@@ -5,7 +5,19 @@
       "title": "Hello. I'm Sohee Yun, a web front-end developer.",
       "description": "While studying UI/UX design with great interest,\nI developed a passion to not just design but also implement things myself,\nso I learned front-end development through a combination of self-study and academy courses.\nThat's how I took my first steps as a developer, and since then,\nI've gained practical experience in various environments.",
       "actionButton1": "Resume Download",
-      "actionButton2": "Too much information"
+      "actionButton2": "Too much information",
+      "actionButton2-1" : "portfolio PDF",
+      "actionButton2-2" : "Instagram",
+      "actionButton2-3" : "Blog",
+      "actionButton2-4" : "GitHub",
+      "actionButton2-5" : "My hobby \uD83D\uDCF7"
+    },
+    "careerSubTitle": "I've been working on the front end",
+    "portfolio": {
+      "type1": "front-end",
+      "type2": "publishing",
+      "type3": "design",
+      "more": "more"
     },
     "skillLastMessage" : "Ready to work with you",
     "faq": {
