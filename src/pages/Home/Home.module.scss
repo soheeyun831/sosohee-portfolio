@@ -91,6 +91,12 @@ section {
     margin-bottom: 40px;
     letter-spacing: -0.5px;
   }
+
+  a {
+    color: #000;
+    text-decoration: none;
+  }
+
   .introBtnWrap {
     display: flex;
     gap: 8px;
@@ -102,6 +108,7 @@ section {
       align-items: center;
       border: 1px solid black;
       padding: 0 12px;
+      color: #000;
       font-size: 15px;
       line-height: 1.4;
       background-color: transparent;
@@ -136,6 +143,7 @@ section {
               display: flex;
               align-items: center;
               justify-content: center;
+              color: #000;
               font-size: 15px;
               line-height: 44px;
               border-bottom: 1px solid #000;

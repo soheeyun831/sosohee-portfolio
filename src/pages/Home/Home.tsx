@@ -1,9 +1,16 @@
 import S from './Home.module.scss';
-import moment from 'moment';
+import dayjs from 'dayjs';
+import customParseFormat from 'dayjs/plugin/customParseFormat';
 import { useState, useEffect } from 'react';
 import { ThreeCube } from './components/ThreeCube';
 import { useTranslation } from 'react-i18next';
 import data from './data/home.json';
+import portfolioList from '../../service/portfolio.json'
+import careerList from '../../service/career.json'
+import type {ICareer} from  '../../type/ICareer.ts'
+import type {IPortfolio} from  '../../type/IPortfolio.ts'
+
+dayjs.extend(customParseFormat);
 
 export default function Home() {
   const { t, i18n } = useTranslation();
@@ -24,10 +31,18 @@ export default function Home() {
   >(data.faq);
 
   useEffect(() => {
-    const startDate = moment('2019-04', 'YYYY-MM');
-    const today = moment();
-    const duration = moment.duration(today.diff(startDate));
-    setCareer(`${duration.years()}-${duration.months()}`);
+    // careerData의 각 항목(startDate ~ endDate)을 합산하여 총 기간을 YYYY-MM 포맷으로 설정
+
+    const totalMonths = careerList?.career.reduce((acc: number, item: ICareer) => {
+      const diffInMonths = dayjs(item.endDate).diff(dayjs(item.startDate), 'month');
+      return acc + (diffInMonths > 1 ? diffInMonths + 1 : diffInMonths);
+    }, 0)
+
+    const years = Math.floor(totalMonths / 12);
+    const months = totalMonths % 12;
+
+
+    setCareer(`${years}-${months}`);
   }, []);
 
   const toggleFaq = (id: number) => () => {
@@ -57,7 +72,7 @@ export default function Home() {
               DEVELOPER
             </h1>
             <p className={S.mainDesc}>
-              {i18n.t('home.mainInfo').split("\n").map((line)=>(<div>{line}</div>))}
+              {i18n.t('home.mainInfo').split("\n").map((line, idx) => (<span key={idx}>{line}</span>))}
             </p>
           </div>
           <div className={S.mainImageArea}>
@@ -79,10 +94,14 @@ export default function Home() {
       <article className={S.introSection}>
         <h3>{t('home.info.title')}</h3>
         <p>
-          {i18n.t('home.info.description').split("\n").map((line)=>(<div>{line}</div>))}
+          {i18n.t('home.info.description').split("\n").map((line, idx)=>(<span key={idx}>{line}</span>))}
         </p>
         <div className={S.introBtnWrap}>
-          <button>{t('home.info.actionButton1')}</button>
+          <button>
+            <a href="/src/assets/file/soheeYun-resume.pdf" download="윤소희-이력서">
+              {t('home.info.actionButton1')}
+            </a>
+          </button>
           <button className={`${S.tmiSelector} ${isTmiDropdownOpen ? S.opened : ''}`}
                   onClick={openTmiDropdown}>
             {t('home.info.actionButton2')}
@@ -101,11 +120,31 @@ export default function Home() {
             </div>
             <div className={S.tmiDropdown}>
               <ul>
-                <li>{t('home.info.actionButton2-1')}</li>
-                <li>{t('home.info.actionButton2-2')}</li>
-                <li>{t('home.info.actionButton2-3')}</li>
-                <li>{t('home.info.actionButton2-4')}</li>
-                <li>{t('home.info.actionButton2-5')}</li>
+                <li>
+                  <a href="/src/assets/file/soheeYun-portfolio.pdf" download="윤소희-포트폴리오">
+                    {t('home.info.actionButton2-1')}
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/bbosong_hee/" target={'_blank'}>
+                    {t('home.info.actionButton2-2')}
+                  </a>
+                </li>
+                <li>
+                  <a href="https://bbosong-develop.tistory.com/" target={'_blank'}>
+                    {t('home.info.actionButton2-3')}
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/soheeyun831" target={'_blank'}>
+                    {t('home.info.actionButton2-4')}
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.instagram.com/photographer_hee/" target={'_blank'}>
+                    {t('home.info.actionButton2-5')}
+                  </a>
+                </li>
               </ul>
             </div>
           </button>
@@ -167,43 +206,74 @@ export default function Home() {
           </ul>
           <div className={S.portfolioList}>
             <ul className={S.portfolioLeftCol}>
-              {[0, 0, 0].map(() => (
-                <li className={S.portfolioItem}>
-                  <div className={S.portfolioImage}>
-                    <img />
-                  </div>
-                  <div className={S.portfolioDetail}>
-                    <h6>this Site ^_^!</h6>
-                    <p>Front-end | Publish | Design</p>
-                    <p>2025.01 ~ 2025.05</p>
-                    <p>업체 : 제 자신</p>
-                    <p>Skill : React</p>
-                  </div>
-                </li>
+              <li className={S.portfolioItem}>
+                <div className={S.portfolioImage}>
+                  <img src={`/src/assets/images/home/thisSiteThumbnail.png`} alt="지금 사이트입니다!" />
+                </div>
+                <div className={S.portfolioDetail}>
+                  <h6>this Portfolio Site!</h6>
+                  <p>Front-end | Design </p>
+                  <p>
+                    2025.05 ~ 2025.12 (7m)
+                  </p>
+                  <p>업체 : 제 자신</p>
+                  <p>Skill : React, Typescript</p>
+                </div>
+              </li>
+              {((portfolioList as unknown as { portfolio: IPortfolio[] }).portfolio).slice(0, 2).map((item : IPortfolio) => (
+                  <li key={item.id} className={S.portfolioItem}>
+                    <div className={S.portfolioImage}>
+                      <img src={`/src/assets/images/${item.thumbnail}`} alt={item.title} />
+                    </div>
+                    <div className={S.portfolioDetail}>
+                      <h6>{item.title}</h6>
+                      <p>{item.category?.join(' | ') ?? 'Front-end'}</p>
+                      <p>
+                        {item.startDate} ~ {item.endDate ?? '현재'} ({
+                          (()=>{
+                            const s=dayjs(item.startDate,['YYYY-MM','YYYY-MM','YYYY']),
+                                e=item.endDate?dayjs(item.endDate,['YYYY-MM','YYYY-MM','YYYY']):dayjs(),
+                                y=e.diff(s,'year');
+                            return `${y ? `${y}y ` : ''}${e.diff(s.add(y,'year'),'month')}m`;
+                          })()
+                        })
+                      </p>
+                      <p>업체 : {item.company}</p>
+                      <p>Skill : {item.skills}</p>
+                    </div>
+                  </li>
               ))}
             </ul>
             <ul className={S.portfolioRightCol}>
-              {[0, 0, 0].map(() => (
-                <li className={S.portfolioItem}>
-                  <div className={S.portfolioImage}>
-                    <img
-                      src="https://via.placeholder.com/150"
-                      alt="Portfolio Thumbnail"
-                    />
-                  </div>
-                  <div>
-                    <h6>this Site ^_^!</h6>
-                    <p>Front-end | Publish | Design</p>
-                    <p>2025.01 ~ 2025.05</p>
-                    <p>업체 : 제 자신</p>
-                    <p>Skill : React</p>
-                  </div>
-                </li>
+              {((portfolioList as unknown as { portfolio: IPortfolio[] }).portfolio).slice(2, 4).map((item : IPortfolio) => (
+                  <li key={item.id} className={S.portfolioItem}>
+                    <div className={S.portfolioImage}>
+                      <img src={`/src/assets/images/${item.thumbnail}`} alt={item.title} />
+                    </div>
+                    <div className={S.portfolioDetail}>
+                      <h6>{item.title}</h6>
+                      <p>{item.category?.join(' | ') ?? 'Front-end'}</p>
+                      <p>
+                        {item.startDate} ~ {item.endDate ?? '현재'} ({
+                          (()=>{
+                            const s=dayjs(item.startDate,['YYYY-MM','YYYY-MM','YYYY']),
+                                  e=item.endDate?dayjs(item.endDate,['YYYY-MM','YYYY-MM','YYYY']):dayjs(),
+                                  y=e.diff(s,'year');
+                            return `${y ? `${y}y ` : ''}${e.diff(s.add(y,'year'),'month')}m`;
+                          })()
+                        })
+                      </p>
+                      <p>업체 : {item.company}</p>
+                      <p>Skill : {item.skills}</p>
+                    </div>
+                  </li>
               ))}
+              <li className={S.portfolioItem}>
+                <div className={S.portfolioDetail}>
+                  <p>{t('home.portfolio.more')}</p>
+                </div>
+              </li>
             </ul>
-          </div>
-          <div>
-            <button>{t('home.portfolio.more')}</button>
           </div>
         </div>
       </article>
@@ -213,8 +283,8 @@ export default function Home() {
         <div className={S.skillArea}>
           <div className={S.skillListArea}>
             <ul className={S.skillList}>
-              {data.skills.map((skill) => (
-                  <li className={S.skillItem}>
+              {data.skills.map((skill, idx) => (
+                  <li key={idx} className={S.skillItem}>
                     <p className={S.skillItemLevel}>
                       {skill.name}
                     </p>

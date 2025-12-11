@@ -1,0 +1,121 @@
+{
+  "career": [
+    {
+      "id": 1,
+      "name": "우리소프트",
+      "startDate": "2025-08",
+      "endDate": "2025-12",
+      "category": ["Front-end"],
+      "jobs": "프리랜서",
+      "memo": "SI / SM. 중소벤처기업-숲(SSUP) 3차 고도화",
+      "portfolioNos": [],
+      "logoGreyUrl" : "/career/woori/logoGrey.png",
+      "logoUrl" : "/career/woori/logo.png",
+      "backgroundUrl" : "/career/woori/background.jpg"
+    },
+    {
+      "id": 2,
+      "name": "빅브라더스",
+      "startDate": "2024-12",
+      "endDate": "2025-05",
+      "category": ["Front-end"],
+      "jobs": "프리랜서",
+      "memo": "소극장 타겟으로 한 영화 예매 플랫폼",
+      "portfolioNos": [1],
+      "logoGreyUrl" : "/career/bigbrothers/logoGrey.png",
+      "logoUrl" : "/career/bigbrothers/logo.png",
+      "backgroundUrl" : "/career/bigbrothers/background.jpg"
+    },
+    {
+      "id": 3,
+      "name": "스파크플러스",
+      "startDate": "2024-04",
+      "endDate": "2024-10",
+      "category": ["Front-end"],
+      "jobs": "프리랜서",
+      "memo": "공유오피스 플랫폼",
+      "portfolioNos": [3,4],
+      "logoGreyUrl" : "/career/sparkplus/logoGrey.png",
+      "logoUrl" : "/career/sparkplus/logo.png",
+      "backgroundUrl" : "/career/sparkplus/background.jpg"
+    },
+    {
+      "id": 4,
+      "name": "아이파킹 클라우드",
+      "startDate": "2023-12",
+      "endDate": "2024-03",
+      "category": ["Front-end"],
+      "jobs": "프리랜서",
+      "memo": "주차 관제 및 주차 시스템 개발/관리",
+      "portfolioNos": [],
+      "logoGreyUrl" : "/career/iparking/logoGrey.png",
+      "logoUrl" : "/career/iparking/logo.png",
+      "backgroundUrl" : "/career/iparking/background.jpg"
+    },
+    {
+      "id": 5,
+      "name": "패스트파이브",
+      "startDate": "2021-07",
+      "endDate": "2023-09",
+      "category": ["Front-end"],
+      "jobs": "정규직",
+      "memo": "공유오피스 플랫폼",
+      "portfolioNos": [5],
+      "logoGreyUrl" : "/career/fastfive/logoGrey.png",
+      "logoUrl" : "/career/fastfive/logo.png",
+      "backgroundUrl" : "/career/fastfive/background.jpg"
+    },
+    {
+      "id": 6,
+      "name": "㈜휴랜",
+      "startDate": "2020-07",
+      "endDate": "2020-12",
+      "category": ["Front-end"],
+      "jobs": "정규직",
+      "memo": "사용자의 건강 골든 타임을 간단하고 쉽게 지키는 최첨단 스마트 보건 솔루션",
+      "portfolioNos": [],
+      "logoGreyUrl" : "/career/hulan/logoGrey.png",
+      "logoUrl" : "/career/hulan/logo.png",
+      "backgroundUrl" : "/career/hulan/background.jpg"
+    },
+    {
+      "id": 7,
+      "name": "집닥㈜",
+      "startDate": "2019-04",
+      "endDate": "2020-07",
+      "category": ["Front-end"],
+      "jobs": "정규직",
+      "memo": "국내 인테리어 중개 플랫폼",
+      "portfolioNos": [7, 9],
+      "logoGreyUrl" : "/career/zipdoc/logoGrey.png",
+      "logoUrl" : "/career/zipdoc/logo.png",
+      "backgroundUrl" : "/career/zipdoc/background.jpg"
+    },
+    {
+      "id": 8,
+      "name": "㈜트립허브",
+      "startDate": "2018-03",
+      "endDate": "2019-02",
+      "category": ["Front-end", "Desinger"],
+      "jobs": "정규직",
+      "memo": "국내최초 선택형 모바일 쿠폰 플랫폼",
+      "portfolioNos": [10, 11],
+      "logoGreyUrl" : "/career/triphub/logoGrey.png",
+      "logoUrl" : "/career/triphub/logo.png",
+      "backgroundUrl" : "/career/triphub/background.jpg"
+    },
+    {
+      "id": 9,
+      "name": "㈜투도스",
+      "startDate": "2017-08",
+      "endDate": "2018-01",
+      "category": ["Front-end", "Desinger"],
+      "jobs": "정규직",
+      "memo": "SI 스타트업 (스마일게이트 파견)",
+      "portfolioNos": [],
+      "logoGreyUrl" : "/career/todos/logoGrey.png",
+      "logoUrl" : "/career/todos/logo.png",
+      "backgroundUrl" : "/career/todos/background.jpg"
+    }
+  ]
+}
