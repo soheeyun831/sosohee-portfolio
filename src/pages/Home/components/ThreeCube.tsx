@@ -29,11 +29,15 @@ function RotatingBox() {
 
     // 텍스처 색공간을 sRGB로 설정해 올바른 색/밝기를 보장
     useEffect(() => {
+        const threeEnc = (THREE as unknown) as { sRGBEncoding?: number; SRGBColorSpace?: number };
+        const sRGBEnc = threeEnc.sRGBEncoding ?? threeEnc.SRGBColorSpace;
+
         textures.forEach((tex) => {
-            if (tex) {
-                tex.encoding = THREE.sRGBEncoding;
-                tex.needsUpdate = true;
-            }
+            if (!tex) return;
+            // Texture에 추가 프로퍼티가 있을 수 있으니 intersection으로 안전하게 단언
+            const t = tex as THREE.Texture & { encoding?: number; needsUpdate?: boolean };
+            if (sRGBEnc !== undefined) t.encoding = sRGBEnc;
+            if (typeof t.needsUpdate !== 'undefined') t.needsUpdate = true;
         });
     }, [textures]);
 
@@ -99,12 +103,28 @@ export function ThreeCube() {
                 style={{ width: '100%', height: '100%' }}
                 camera={{ position: [0, 0, 360], fov: 70 }}
                 onCreated={({ gl }) => {
-                    // 출력 인코딩을 sRGB로 설정하면 텍스처 색과 밝기가 올바르게 보입니다
-                    gl.outputEncoding = THREE.sRGBEncoding;
-                    // 실제 광원 모드, 보다 현실적인 광량 계산
-                    gl.physicallyCorrectLights = true;
-                    // 필요하면 노출을 조절(기본 1). 더 어둡게 할 때는 0.8 같은 값 사용
-                    gl.toneMappingExposure = 1;
+                    // gl은 런타임에 WebGLRenderer일 가능성이 크므로 안전하게 단언(unknown -> 인터섹션)
+                    type MaybeRenderer = THREE.WebGLRenderer & {
+                        outputEncoding?: number;
+                        physicallyCorrectLights?: boolean;
+                        toneMappingExposure?: number;
+                    };
+
+                    const renderer = (gl as unknown) as MaybeRenderer;
+                    const threeEnc = (THREE as unknown) as { sRGBEncoding?: number; SRGBColorSpace?: number };
+                    const sRGBEnc = threeEnc.sRGBEncoding ?? threeEnc.SRGBColorSpace;
+
+                    if (sRGBEnc !== undefined) {
+                        renderer.outputEncoding = sRGBEnc;
+                    }
+
+                    if ('physicallyCorrectLights' in renderer) {
+                        renderer.physicallyCorrectLights = true;
+                    }
+
+                    if ('toneMappingExposure' in renderer) {
+                        renderer.toneMappingExposure = 1;
+                    }
                 }}
             >
                 {/* 약한 ambient를 추가해 너무 강한 하이라이트 완화 */}

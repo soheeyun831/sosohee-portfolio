@@ -1,8 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
-import 'swiper/css';
-import 'swiper/css/pagination';
 
 import Home from './pages/Home/Home.tsx';
 import Career from './pages/Career.tsx';

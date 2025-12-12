@@ -10,12 +10,25 @@ import { ThreeCube } from './components/ThreeCube';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 import type { Swiper as SwiperClass } from 'swiper';
+// @ts-expect-error - importing swiper css as global side-effect (no TS types)
+import 'swiper/css';
+// @ts-expect-error - importing swiper pagination css as global side-effect (no TS types)
+import 'swiper/css/pagination';
 
 import data from './data/home.json';
 import portfolioList from '../../service/portfolio.json'
 import careerList from '../../service/career.json'
 import type {ICareer} from  '../../type/ICareer.ts'
 import type {IPortfolio} from  '../../type/IPortfolio.ts'
+
+// Vite: import all images under src/assets/images so build includes them and we can reference by relative key
+type ImageModule = { default: string } | string;
+const imagesModules = import.meta.glob('/src/assets/images/**', { eager: true }) as Record<string, ImageModule>;
+const imageMap: Record<string, string> = {};
+Object.entries(imagesModules).forEach(([path, mod]) => {
+  const key = path.replace('/src/assets/images/', '');
+  imageMap[key] = typeof mod === 'string' ? mod : (mod.default ?? '');
+});
 
 dayjs.extend(customParseFormat);
 
@@ -258,7 +271,7 @@ export default function Home() {
             <ul className={S.portfolioLeftCol}>
               <li className={S.portfolioItem}>
                 <div className={S.portfolioImage}>
-                  <img src={`/src/assets/images/home/thisSiteThumbnail.png`} alt="지금 사이트입니다!" />
+                  <img src={imageMap['home/thisSiteThumbnail.png']} alt="지금 사이트입니다!" />
                 </div>
                 <div className={S.portfolioDetail}>
                   <h6>this Portfolio Site!</h6>
@@ -273,7 +286,7 @@ export default function Home() {
               {((portfolioList as unknown as { portfolio: IPortfolio[] }).portfolio).slice(0, 2).map((item : IPortfolio) => (
                   <li key={item.id} className={S.portfolioItem}>
                     <div className={S.portfolioImage}>
-                      <img src={`/src/assets/images/${item.thumbnail}`} alt={item.title} />
+                      <img src={imageMap[item.thumbnail] ?? ''} alt={item.title} />
                     </div>
                     <div className={S.portfolioDetail}>
                       <h6>{item.title}</h6>
@@ -298,7 +311,7 @@ export default function Home() {
               {((portfolioList as unknown as { portfolio: IPortfolio[] }).portfolio).slice(2, 4).map((item : IPortfolio) => (
                   <li key={item.id} className={S.portfolioItem}>
                     <div className={S.portfolioImage}>
-                      <img src={`/src/assets/images/${item.thumbnail}`} alt={item.title} />
+                      <img src={imageMap[item.thumbnail] ?? ''} alt={item.title} />
                     </div>
                     <div className={S.portfolioDetail}>
                       <h6>{item.title}</h6>
@@ -320,7 +333,7 @@ export default function Home() {
               ))}
               <li className={`${S.portfolioItem} ${S.more}`}>
                 <div className={S.portfolioDetail}>
-                  <img src="/src/assets/images/common/plus-icon.png" alt="more portfolio" />
+                  <img src={imageMap['common/plus-icon.png']} alt="more portfolio" />
                   <p>{t('home.portfolio.more')}</p>
                 </div>
               </li>
@@ -356,17 +369,17 @@ export default function Home() {
             </ul>
           </div>
           <div className={S.skillImg}>
-            <img src="/src/assets/images/home/skill-vue.png" alt="skill vue icon" className={S.skillVue} />
-            <img src="/src/assets/images/home/skill-sass.png" alt="skill sass icon" className={S.skillSass} />
-            <img src="/src/assets/images/home/skill-js.png" alt="skill javascript icon" className={S.skillJs} />
-            <img src="/src/assets/images/home/skill-ts.png" alt="skill typeScript icon" className={S.skillTs} />
+            <img src={imageMap['home/skill-vue.png']} alt="skill vue icon" className={S.skillVue} />
+            <img src={imageMap['home/skill-sass.png']} alt="skill sass icon" className={S.skillSass} />
+            <img src={imageMap['home/skill-js.png']} alt="skill javascript icon" className={S.skillJs} />
+            <img src={imageMap['home/skill-ts.png']} alt="skill typeScript icon" className={S.skillTs} />
             <div className={S.skillImgBg}/>
           </div>
         </div>
       </article>
       <article className={S.faqSection}>
         <div className={S.faqImg}>
-          <img src="/src/assets/images/home/faq.png" alt="faq" />
+          <img src={imageMap['home/faq.png']} alt="faq" />
         </div>
         <div className={S.faqContent}>
           <p>FAQ</p>

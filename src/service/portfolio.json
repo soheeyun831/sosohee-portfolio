@@ -9,7 +9,7 @@
       "skills": "Nuxt3, TypeScript, SCSS",
       "company": "빅브라더스",
       "memo": "1. 어드민에 홈페이지 관리 시스템 추가\n기존 극장 관리 어드민에 메인 페이지에 들어갈 이벤트 및 모든 페이지 배너, 문의 관리 등 홈페이지 관리 기능 추가\n\n2. 프로젝트 0% → 100% 개발\nNuxt3와 TypeScript, pinia, pnpm 으로 프로젝트 생성부터 QA 완료까지 프론트엔드 1인으로 개발하였습니다.\n\n3. 극장 별 영화 예매 시스템 개발\n극장 별로 등록한 스크린에 따른 스케줄 표와 유저가 선택한 스케줄과 극장에서 등록한 요금/좌석도를 d3.js 사용하여 개발했습니다. 요금제에 없는 좌석이 등록될 경우 선택 금지 기능이나 인원을 짝수 선택하면 2매씩 선택할 수 있는 로직이 들어가 있습니다. 비회원 예약이나 청소년 상영 금지에 따른 처리 로직 또한 모두 들어갔습니다.",
-      "thumbnail": "/portfolio/bigbrothers/thumbnail.png",
+      "thumbnail": "portfolio/bigbrothers/thumbnail.png",
       "images": ["/portfolio/bigbrothers/image-01.jpeg"],
       "companyNo": 2
     },
@@ -21,7 +21,7 @@
       "category": ["Design"],
       "skills": "Figma, Photoshop",
       "company": "제 자신",
-      "thumbnail": "/portfolio/marry/thumbnail.png",
+      "thumbnail": "portfolio/marry/thumbnail.png",
       "images": ["/portfolio/marry/image-01.jpeg"]
     },
     {
@@ -33,7 +33,7 @@
       "skills": "HTML, Javascript(jQuery)",
       "company": "스파크플러스",
       "memo": "1. framework 없이 다이나믹 폼 상담 문의 팝업 제작\nframework 사용되지 않던 프로젝트였어서 웬만하면 바닐라 javascript로 다이나믹 폼을 구현했습니다. 반응형과 적응형이 섞였던 페이지였기에 모바일 환경에서는 url queryString으로 이전 내용들을 전달하고 페이지를 돌아와도 기존 선택된 것들이 유지될 수 있게 작업했습니다.\n\n2. 스크롤과 마우스 오버에 따른 액션 추가, 반응형으로 퍼블리싱 소개 영역은 반응형과 디자인적인 요소가 있었기에 해당 사항을 고려하여 퍼블리싱 작업이 들어갔었습니다.",
-      "thumbnail": "/portfolio/sparkplus/thumbnail.png",
+      "thumbnail": "portfolio/sparkplus/thumbnail.png",
       "images": ["/portfolio/sparkplus/image-01.jpeg"],
       "companyNo": 3
     },
@@ -45,7 +45,7 @@
       "category": ["Front-end", "Publishing"],
       "skills": "Vue2",
       "company": "스파크플러스",
-      "thumbnail": "/portfolio/sparkplus/thumbnail2.png",
+      "thumbnail": "portfolio/sparkplus/thumbnail2.png",
       "images": ["/portfolio/sparkplus/image-01.jpeg"],
       "companyNo": 3
     },
@@ -58,7 +58,7 @@
       "skills": "Vue3, Typescript, Storybook, pinia",
       "company": "패스트파이브",
       "memo": "1. 오늘의 운세 등 사용자의 흥미를 유도한 기능 기획 제안 및 프론트 개발\n 이용자 중 웹 이용률이 무척 저조하여 어떻게 하면 유저의 이탈률을 줄이고 접근성을 높일 수 있을까 고민하다가 재미있는 기능을 추가하면 어떨까 싶어서 자사와 협약된 음식점을 정리해 점심 식사 룰렛이나 오늘의 운세 기능, HR 기능에 대해 제안을 하였고 그 중 오늘의 운세가 채택되어 기획부터 적극적인 참여와 프론트 100% 참여로 개발을 완료 했었습니다. 기능 추가 후 이용률이 소폭 증가했었습니다. \n\n 2. 다이나믹 폼 기능이 들어간 유저 Faq, Qna 페이지 제작\n문의 및 Faq를 국내 솔루션으로 넘기는 방식이였다가 회사 정책으로 해외 솔루션을 사용하게 되어서 해당 솔루션 관리 페이지에서 문의 항목을 정하면 프론트에서 공유받은 API로 받아온 후 첫번째 문의 항목에 따라 그 다음 항목이 유동적으로 바뀌는 다이나믹 폼을 구현했었습니다. 문제는, 문의 항목에 유니크키가 없어서 분리하는데 이슈가 있었어서 연결해주는 백엔드 개발자와 중간에 분류를 할수 있는 키를 만들고 중복되는 건은 타이틀로 비교하여 막는 작업을 했었습니다. \n\n3. 어드민 예약 프로세스 고도화\n퍼포먼스 개선이 필요했던 회의실 예약 기능 개선 프로젝트에서는, 여러 회의실의 시간 선택 기능이 개별 스크롤로 구성되어 성능 저하가 발생하던 문제를 발견하고, 기획자와 디자이너를 설득해 영업시간 외 타임 셀렉터를 제거하는 방식으로 반복 렌더링을 줄이고 속도 저하를 해결한 경험이 있습니다.\n\n 4. 메뉴 및 권한 관리 프로세스 구축\n주니어 기획자와 주니어 백엔드가 붙어 셋이 스프린트를 진행했었기에 책임감을 갖고 메인 개발자로 기획부터 마무리까지 참여하여 진행한 경험이 있습니다. 그동안 메뉴 권한이 없었기에 권한 관리가 필요하다고 의견을 제시하여 제시안을 토대로 권한 관리를 만들고 해당 권한의 CRUD 기능과 메뉴와의 매칭 각 페이지 마다 권한에 따라 노출 및 작동할 수 있도록 작업했습니다.",
-      "thumbnail": "/portfolio/fastfive/thumbnail.png",
+      "thumbnail": "portfolio/fastfive/thumbnail.png",
       "images": ["/portfolio/fastfive/image-01.jpeg"],
       "companyNo": 5
     },
@@ -71,7 +71,7 @@
       "skills": "HTML, Javascript(jQuery)",
       "company": "코어웍스",
       "url": "http://bigo.expo2012.kr/",
-      "thumbnail": "/portfolio/coreworks/thumbnail.png",
+      "thumbnail": "portfolio/coreworks/thumbnail.png",
       "images": ["/portfolio/coreworks/image-01.jpeg"]
     },
     {
@@ -83,7 +83,7 @@
       "skills": "Nuxt2, Element-Ui, scss",
       "company": "집닥",
       "memo": "1. 다이나믹하게 유저가 선택한 옵션에 따라 견적 노출 후 상담 문의하는 페이지 신규 개발 \nNuxt2 환경에서 유저가 선택한 옵션에 따라 json으로 정해놨던 옵션에 딸린 옵션가를 계산해 유저에게 예상 금액을 노출하고 상담으로 이어갈 수 있게 작업했습니다.\n\n 2. 공통 Element Component 개발(Vue.js)\n아토믹 디자인 패턴을 지향하며 input 부터 해서 버튼, 체크박스, 라벨 등 컴포넌트를 작게 나누어 사용할 수 있도록 개발하였습니다.",
-      "thumbnail": "/portfolio/zipdoc/thumbnail.png",
+      "thumbnail": "portfolio/zipdoc/thumbnail.png",
       "images": ["/portfolio/zipdoc/image-01.jpeg"],
       "companyNo": 7
     },
@@ -96,7 +96,7 @@
       "skills": "HTML, Javascript(jQuery)",
       "company": "코어웍스",
       "url": "https://home-ticket.co.kr/yscable/mall/",
-      "thumbnail": "/portfolio/coreworks/thumbnail.png",
+      "thumbnail": "portfolio/coreworks/thumbnail.png",
       "images": ["/portfolio/coreworks/image-01.jpeg"]
     },
     {
@@ -109,7 +109,7 @@
       "company": "집닥",
       "url": "https://zipdoc.co.kr/",
       "memo": "1. 개발에서 css가 아닌 scss 를 사용하기 위해서 scss 코드를 Ruby 를 이용하여 css로 자동 변경 할 수 있도록 적용\n\n 2. 기존 중복 / 미사용 css와 script 제거 및 공통화\n기존에 명칭이 같고 미사용하는 css가 너무 많았고 안쓰는 페이지 또한 많았어서 현재 사용하는 페이지에 대한 영향도를 파악하며 미사용한 css 제거 및 통일해서 사용할 수 있는 css를 만들어서 사용하는 등 스타일 공통화 작업을 진행했었습니다. \n\n 3. 공통 Element Component 개발(Vue.js)\n기존에도 cdn 방식으로 vue를 사용하고 있던 환경이였으나 제대로된 사용이 아니였었고 무겁기만한 프로젝트였어서 jQuery를 덜고 vue의 장점을 살리고자 했습니다. 아토믹 디자인 패턴을 지향하며 input 부터 해서 버튼, 체크박스, 라벨 등 컴포넌트를 작게 나누어 사용할 수 있도록 개발하였습니다.",
-      "thumbnail": "/portfolio/zipdoc/thumbnail.png",
+      "thumbnail": "portfolio/zipdoc/thumbnail.png",
       "images": ["/portfolio/zipdoc/image-01.jpeg"],
       "companyNo": 7
     },
@@ -124,7 +124,7 @@
       "company": "트립허브",
       "url": "http://dev.choice1.co.kr:2003/sample/choice/mobile/auth/page",
       "memo" : "1. 1~100% 모든 참여\n기획자나 디자이너가 없던 상황에서 백엔드 개발자와 둘이 사업 초기 단계부터 서비스 런칭까지 전 과정을 함께하며, 기획부터 백엔드, 프론트엔드까지 전반적인 이해도를 키웠고, 서비스 개선과 사용자 중심 개발의 중요성을 체득했습니다.\n \n 2. 시스템, DB 설계  및 기본적인 CRUD API 개발\n회사를 다니며 학원을 다니며 자바에 대해 공부하고 백엔드의 도움으로 ERD 그리는 법, 테이블끼리의 상관관계에 대해 알게 되었고 mariaDB 와 java spring 환경에서 간단한 CRUD API를 만들어 보는 경험을 해보았습니다.\n 현재는 만드는 법은 까먹었으나 해당 경험을 양분 삼아 백엔드와 유연한 소통이 가능하게 해준 소중한 경험이였습니다.",
-      "thumbnail": "/portfolio/triphub/thumbnail.png",
+      "thumbnail": "portfolio/triphub/thumbnail.png",
       "images": ["/portfolio/triphub/image-01.jpeg"],
       "companyNo": 8
     },
@@ -138,7 +138,7 @@
       "company": "트립허브",
       "url": "http://www.triphub.co.kr/",
       "memo" : "1. 1~100% 모든 참여\n기획자나 디자이너가 없던 상황에서 백엔드 개발자와 둘이 사업 초기 단계부터 서비스 런칭까지 전 과정을 함께하며, 기획부터 백엔드, 프론트엔드까지 전반적인 이해도를 키웠고, 서비스 개선과 사용자 중심 개발의 중요성을 체득했습니다.\n \n 2. 시스템, DB 설계  및 기본적인 CRUD API 개발\n회사를 다니며 학원을 다니며 자바에 대해 공부하고 백엔드의 도움으로 ERD 그리는 법, 테이블끼리의 상관관계에 대해 알게 되었고 mariaDB 와 java spring 환경에서 간단한 CRUD API를 만들어 보는 경험을 해보았습니다.\n 현재는 만드는 법은 까먹었으나 해당 경험을 양분 삼아 백엔드와 유연한 소통이 가능하게 해준 소중한 경험이였습니다.",
-      "thumbnail": "/portfolio/triphub/thumbnail.png",
+      "thumbnail": "portfolio/triphub/thumbnail.png",
       "images": ["/portfolio/triphub/image-01.jpeg"],
       "companyNo": 8
     }
