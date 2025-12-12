@@ -1,11 +1,23 @@
+$basicFontColor: #ffffff;
+$ActiveFontColor: #ffcc00;
+$borderColor: #000000;
+$activePink: #FF0058;
+
+
 .mainHeader {
   width: 100%;
   padding: 20px 40px;
   display: flex;
+  position: fixed;
+  top: 0;
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  background-color: #000; // Change to your desired background color
+  border-bottom: 1px solid $borderColor;
+  background-color: rgba(255, 255, 255, 0);
+  transition: all 0.3s ease-in-out;
+  z-index: 60;
+
 
   .logoContainer {
     .logo {
@@ -21,15 +33,15 @@
       align-items: center;
       font-size: 15px;
       .active{
-        color: #ffcc00;
+        color: $ActiveFontColor;
       }
       a {
-        color: #fff; // Change to your desired text color
+        color: $basicFontColor; // Change to your desired text color
         text-decoration: none;
         transition: color 0.3s;
 
         &:hover {
-          color: #ffcc00;
+          color: $ActiveFontColor;
         }
       }
 
@@ -40,7 +52,7 @@
         &:hover {
           svg {
             path {
-              fill: #ffcc00;
+              fill: $ActiveFontColor;
               transition: fill 0.3s;
             }
           }
@@ -58,8 +70,8 @@
             height: 88px;
             display: flex;
             flex-direction: column;
-            border: 1px solid #000;
-            background-color: #ffffff;
+            border: 1px solid $borderColor;
+            background-color: $basicFontColor;
 
             li {
               flex: 1;
@@ -69,11 +81,11 @@
               font-size: 15px;
 
               &:first-child {
-                border-bottom: 1px solid #000;
+                border-bottom: 1px solid $borderColor;
               }
 
               &:hover {
-                background-color: #ffcc00;
+                background-color: $ActiveFontColor;
               }
             }
           }
@@ -82,7 +94,7 @@
         &.open {
           svg {
             path {
-              fill: #ffcc00;
+              fill: $ActiveFontColor;
               transition: fill 0.3s;
             }
           }
@@ -110,7 +122,7 @@
       position: absolute;
       height: 0.3rem;
       width: 2.2rem;
-      background: #ffffff;
+      background: $basicFontColor;
       opacity: 1;
       left: 0;
       transform: rotate(0deg);
@@ -149,6 +161,62 @@
         &:nth-child(3) {
           top: 1.05rem;
           transform: rotate(-135deg);
+        }
+      }
+    }
+  }
+
+  &.active {
+    backdrop-filter: blur(4px);
+    background-color: rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+
+    .pcNav {
+      .navList {
+        .active{
+          color: $activePink;
+        }
+        a {
+          color: $borderColor;
+
+          &:hover {
+            color: $activePink;
+          }
+        }
+
+        .languageSelector {
+
+          &:hover {
+            svg {
+              path {
+                fill: $activePink;
+              }
+            }
+          }
+
+          svg {
+            path {
+              fill: $borderColor;
+            }
+          }
+
+          .languageDropdown {
+            ul {
+              li {
+                &:hover {
+                  background-color: $activePink;
+                }
+              }
+            }
+          }
+
+          &.open {
+            svg {
+              path {
+                fill: $activePink;
+              }
+            }
+          }
         }
       }
     }

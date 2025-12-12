@@ -1,5 +1,5 @@
 import S from './Header.module.scss';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
@@ -7,6 +7,7 @@ export default function Header() {
   const { i18n } = useTranslation();
   const [globalActive, setGlobalActive] = useState(false);
   const [sideBarActive, setSideBarActive] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   const changeLanguage = (lng : 'ko' | 'en') => {
     i18n.changeLanguage(lng);
@@ -20,8 +21,33 @@ export default function Header() {
     setGlobalActive(prev => !prev); // 이전 상태 기반으로 안전하게 토글
   };
 
+  useEffect(() => {
+    // 스크롤 위치가 150px 이상이면 isScrolled를 true로 설정
+    // rAF 기반으로 디바운스하여 너무 많은 상태 업데이트 방지
+    let ticking = false;
+
+    const onScroll = () => {
+      const y = window.scrollY || window.pageYOffset;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setIsScrolled(y > 150);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    // 초기 체크 (페이지가 로드된 상태에서 이미 스크롤된 경우 대비)
+    onScroll();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
+
   return (
-      <header className={S.mainHeader}>
+      <header className={`${S.mainHeader} ${isScrolled ? S.active : ''}`}>
         <div className={S.logoContainer}>
           <img src="/src/assets/images/common/logo.png" alt="Logo" className={S.logo} />
         </div>
