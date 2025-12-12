@@ -1,9 +1,16 @@
-import S from './Home.module.scss';
+import { useState, useEffect } from 'react';
+
 import dayjs from 'dayjs';
 import customParseFormat from 'dayjs/plugin/customParseFormat';
-import { useState, useEffect } from 'react';
-import { ThreeCube } from './components/ThreeCube';
+import S from './Home.module.scss';
+
 import { useTranslation } from 'react-i18next';
+
+import { ThreeCube } from './components/ThreeCube';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
+import type { Swiper as SwiperClass } from 'swiper';
+
 import data from './data/home.json';
 import portfolioList from '../../service/portfolio.json'
 import careerList from '../../service/career.json'
@@ -12,9 +19,12 @@ import type {IPortfolio} from  '../../type/IPortfolio.ts'
 
 dayjs.extend(customParseFormat);
 
+
 export default function Home() {
   const { t, i18n } = useTranslation();
 
+
+  const [swiper, setSwiper] = useState<SwiperClass | undefined>();
   const [career, setCareer] = useState<string>(/*Y-M*/ '');
   const [isTmiDropdownOpen, setTmiDropdown] = useState<boolean>(false);
 
@@ -45,6 +55,17 @@ export default function Home() {
     setCareer(`${years}-${months}`);
   }, []);
 
+  const handlePrev = () => {
+    // 이전으로 이동
+    swiper?.slidePrev();
+  };
+
+  const handleNext = () => {
+    // 다음으로 이동
+    swiper?.slideNext();
+  };
+
+
   const toggleFaq = (id: number) => () => {
     setFaqList((prev) => {
       return prev.map((faq) => {
@@ -72,7 +93,7 @@ export default function Home() {
               DEVELOPER
             </h1>
             <p className={S.mainDesc}>
-              {i18n.t('home.mainInfo').split("\n").map((line, idx) => (<span key={idx}>{line}</span>))}
+              {i18n.t('home.mainInfo').split("\n").map((line, idx) => (<span key={idx}>{line}<br/></span>))}
             </p>
           </div>
           <div className={S.mainImageArea}>
@@ -94,7 +115,7 @@ export default function Home() {
       <article className={S.introSection}>
         <h3>{t('home.info.title')}</h3>
         <p>
-          {i18n.t('home.info.description').split("\n").map((line, idx)=>(<span key={idx}>{line}</span>))}
+          {i18n.t('home.info.description').split("\n").map((line, idx)=>(<span key={idx}>{line}<br/></span>))}
         </p>
         <div className={S.introBtnWrap}>
           <button>
@@ -114,7 +135,6 @@ export default function Home() {
                   xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M5.19629 9L0.000136542 2.51244e-08L10.3924 -8.834e-07L5.19629 9Z"
-                    fill="black"
                 />
               </svg>
             </div>
@@ -153,43 +173,73 @@ export default function Home() {
 
       <article className={S.careerSection}>
         <div className={S.nameTagWrap}>
-          <img></img>
         </div>
         <div className={S.careerInfo}>
           <p>{t('home.careerSubTitle')}</p>
           <p>{career.split('-')[0]}years</p>
           <p>{career.split('-')[1]}month</p>
           <div className={S.careerCarousel}>
-            <button>
+
+            <Swiper
+                className={S.careerSwiper}
+                 modules={[Autoplay]}
+                 slidesPerView={1}
+                 spaceBetween={0} // 슬라이더 간의 간격 지정
+                 autoplay={{ // 자동 재생
+                   delay: 4500, // 지연 시간 (한 슬라이더에 머물르는 시간)
+                   disableOnInteraction: true, // 마우스 제어 이후 자동 재생을 막을지 말지
+                 }}
+                 speed={500} // 슬라이더 넘어가는 속도
+                 onSwiper={(e) => {
+                   setSwiper(e);
+                 }}
+            >
+              {
+                careerList.career.map((_, index) => (
+                  <SwiperSlide key={index} className={S.careerItem}>
+                    <h5 className={S.careerName}>{_.name}</h5>
+                    <p className={S.careerData}>
+                      <span>
+                        {_.startDate}~{_.endDate ?? '현재'}
+                      </span>
+                      <span>
+                        {_.category}
+                      </span>
+                      <span>
+                        {_.jobs}
+                      </span>
+                    </p>
+                  </SwiperSlide>
+                ))
+              }
+            </Swiper>
+
+            <button className={S.NavigationLeft} onClick={handlePrev} aria-label="previous slide">
               <svg
-                width="18"
-                height="21"
-                viewBox="0 0 18 21"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                  width="18"
+                  height="21"
+                  viewBox="0 0 18 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                 <path
-                  d="M-5.24537e-07 10.3923L18 2.97308e-05L18 20.7846L-5.24537e-07 10.3923Z"
-                  fill="black"
+                    d="M-5.24537e-07 10.3923L18 2.97308e-05L18 20.7846L-5.24537e-07 10.3923Z"
+                    fill="black"
                 />
               </svg>
             </button>
-            <button>
+            <button className={S.NavigationRight} onClick={handleNext} aria-label="next slide">
               <svg
-                width="18"
-                height="21"
-                viewBox="0 0 18 21"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                  width="18"
+                  height="21"
+                  viewBox="0 0 18 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
                 <path
-                  d="M-5.24537e-07 10.3923L18 2.97308e-05L18 20.7846L-5.24537e-07 10.3923Z"
-                  fill="black"
+                    d="M-5.24537e-07 10.3923L18 2.97308e-05L18 20.7846L-5.24537e-07 10.3923Z"
+                    fill="black"
                 />
               </svg>
             </button>
-            <ul>
-              <li></li>
-              <li></li>
-            </ul>
           </div>
         </div>
       </article>
@@ -268,8 +318,9 @@ export default function Home() {
                     </div>
                   </li>
               ))}
-              <li className={S.portfolioItem}>
+              <li className={`${S.portfolioItem} ${S.more}`}>
                 <div className={S.portfolioDetail}>
+                  <img src="/src/assets/images/common/plus-icon.png" alt="more portfolio" />
                   <p>{t('home.portfolio.more')}</p>
                 </div>
               </li>
@@ -345,7 +396,12 @@ export default function Home() {
           </div>
         </div>
       </article>
-      <article className={S.contactMeSection}></article>
+      <article className={S.contactMeSection}>
+        <div>
+          <h3>Contact Me</h3>
+          <button>Want to work with me?</button>
+        </div>
+      </article>
     </section>
   );
 }
