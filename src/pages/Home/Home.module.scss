@@ -3,6 +3,12 @@ $bodyFontColor: #999999;
 $activeButtonText: #FFFFFF;
 $activePink: #FF0058;
 
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+
 section {
 }
 .homeThumbnail {
@@ -90,7 +96,7 @@ section {
   & > p {
     width: fit-content;
     text-align-last: center;
-    color: #999999;
+    color: $bodyFontColor;
     font-size: 15px;
     line-height: 20px;
     margin-bottom: 40px;
@@ -226,7 +232,7 @@ section {
   .nameTagWrap {
     width: 180px;
     height: 527px;
-    background-image: url('../../assets/images/home/employeeCard.png');
+    background-image: url("/src/assets/images/home/employeeCard.png");
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -272,7 +278,7 @@ section {
           letter-spacing: -0.5px;
           display: inline-flex;
 
-          gap: 11px;
+          gap: 9px;
           > span {
             position: relative;
 
@@ -282,7 +288,7 @@ section {
                 position: absolute;
                 width: 1px;
                 height: 12px;
-                left: -7px;
+                left: -5px;
                 top: 50%;
                 transform: translateY(-50%);
                 background-color: $bodyFontColor;
@@ -339,6 +345,7 @@ section {
       margin-bottom: 40px;
       & > li {
         font-size: 15px;
+        cursor: pointer;
       }
       .divider {
         width: 1px;
@@ -356,10 +363,10 @@ section {
         display: flex;
         flex-direction: column;
         gap: 20px;
-        width: fit-content;
+        width: calc(50% - 10px);
         height: 100%;
         .portfolioItem {
-          width: 480px;
+          width: 100%;
           height: 220px;
           padding: 20px;
           display: flex;
@@ -367,8 +374,9 @@ section {
           gap: 20px;
           border: 1px solid #000;
           .portfolioImage {
-            width: 180px;
-            height: 180px;
+            width: 36%;
+            max-width: 180px;
+            max-height: 180px;
             flex-shrink: 0;
             flex-grow: 0;
             border-radius: 100%;
@@ -387,8 +395,10 @@ section {
               margin-bottom: 16px;
             }
             & > p {
-              font-size: 14px;
-              color: #999999;
+              font-size: 13px;
+              color: $bodyFontColor;
+              letter-spacing: -0.4px;
+              line-height: 1.6;
               margin-bottom: 4px;
             }
           }
@@ -470,10 +480,10 @@ section {
       }
     }
     .skillImg {
-      width: 560px;
-      height: 350px;
+      width: 500px;
+      height: 320px;
       position: relative;
-      background-image: url('../../assets/images/home/skillBackground.png');
+      background-image: url("/src/assets/images/home/skillBackground.png");
       background-repeat: no-repeat;
       background-size: 500px auto;
       background-position-x: left;
@@ -676,7 +686,7 @@ section {
           text-wrap: wrap;
           word-break: break-all;
           padding: 10px 13px 20px;
-          color: #999999;
+          color: $bodyFontColor;
           font-size: 14px;
           line-height: 18px;
         }
@@ -690,6 +700,26 @@ section {
   height: fit-content;
   padding: 80px 0;
   background-color: #2745f2;
+  .contactContents {
+    max-width: 980px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    .contactTitle {
+      color: #fff;
+      font-size: 48px;
+      font-family: 'Micro 5', Arial, Helvetica, sans-serif;
+      letter-spacing: 5px;
+    }
+    .contactButton {
+      height: 44px;
+      padding: 0 12px;
+      color: #fff;
+      border: 1px solid #ffffff;
+      background-color: transparent;
+      cursor: pointer;
+    }
+  }
 }
 @keyframes slideLeftRight {
 
@@ -698,5 +728,489 @@ section {
   }
   100% {
     transform:translateX(-800.5px);
+  }
+}
+
+
+
+// Breakpoints
+$breakpoint-mobile: 430px;
+$breakpoint-tablet: 768px;
+$breakpoint-laptop: 1224px;
+$breakpoint-desktop: 1824px;
+
+// 미디어쿼리 (랩탑)
+@media (max-width: $breakpoint-laptop) {
+  .portfolioSection {
+    padding: 100px 40px 120px;
+  }
+
+  .skillSection {
+    padding: 120px 40px 150px;
+
+    .skillArea {
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: normal;
+
+      .skillListArea {
+        flex-grow: 1;
+        flex-shrink: 1;
+        .skillList {
+          width: 100%;
+          max-width: 320px;
+        }
+      }
+      .skillImg {
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .faqSection {
+    padding: 60px 40px 120px;
+  }
+
+  .contactMeSection {
+    padding: 80px 40px;
+  }
+}
+
+// 미디어쿼리 (태블릿)
+@media (max-width: $breakpoint-tablet) {
+
+  .homeThumbnail {
+    width: 100%;
+    height: 100vh;
+    padding-bottom: 5rem;
+
+    .mainWrap {
+      width: 100%;
+      height: 100%;
+      padding: 0 40px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      gap: 0;
+
+      .mainTextArea {
+        .mainTitle {
+          font-size: 86px;
+        }
+
+        .mainDesc {
+          display: none;
+        }
+      }
+
+      .mainImageArea {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        > * {
+          margin: 0 !important;
+          height: 300px !important;
+        }
+
+        canvas {
+          width: 300px !important;
+          height: 300px !important;
+        }
+      }
+    }
+  }
+
+  .careerSection {
+    width: 100%;
+    padding: 0 24px 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+
+    .nameTagWrap {
+      width: 120px;
+      height: 355px;
+    }
+
+    .careerInfo {
+      padding-top: 20px;
+
+      & > p {
+        &:first-child {
+          font-size: 18px;
+          text-align: center;
+        }
+
+        &:not(:first-child) {
+          font-size: 86px;
+          line-height: 0.7;
+          text-align: center;
+        }
+      }
+
+      .careerCarousel {
+        width: 100%;
+        max-width: 320px;
+      }
+    }
+  }
+
+  .portfolioSection {
+    padding-top: 100px;
+    padding-bottom: 120px;
+
+    .portfolioWrap {
+      .portfolioMenu {
+        & > li {
+          font-size: 14px;
+        }
+      }
+
+      .portfolioList {
+        flex-direction: column;
+        height: auto;
+        gap: 12px;
+
+        .portfolioLeftCol,
+        .portfolioRightCol {
+          gap: 12px;
+          width: 100%;
+
+          .portfolioItem {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            gap: 12px;
+
+            .portfolioDetail {
+              & > h6 {
+                font-size: 15px;
+                margin-bottom: 16px;
+              }
+            }
+
+            &.more {
+              .portfolioDetail {
+                gap: 8px;
+
+                & > img {
+                  width: 24px;
+                  height: 24px;
+                }
+
+                & > p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+
+
+  .skillSection {
+    padding: 60px 24px 80px;
+    .skillArea {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+
+      .skillListArea {
+        width: 100%;
+        display: flex;
+        flex-grow: 1;
+        flex-shrink: 1;
+        align-items: center;
+        justify-content: center;
+        .skillList {
+          width: 100%;
+          max-width: 320px;
+
+          .skillItem {
+            display: flex;
+            color: #fff;
+            font-size: 15px;
+            line-height: 40px;
+            justify-content: space-between;
+            b {
+              font-weight: 700;
+            }
+
+            &:last-child {
+              color: #FFCC00;
+            }
+          }
+        }
+      }
+      .skillImg {
+        width: 382px;
+        height: 260px;
+        background-size:340px auto;
+        background-position-x: center;
+        .skillVue {
+          width: 80px;
+          height: 80px;
+        }
+
+        .skillSass {
+          width: 80px;
+          height: 60px;
+        }
+
+        .skillJs {
+          width: 80px;
+          height: 80px;
+        }
+        .skillTs {
+          width: 60px;
+          height: 60px;
+        }
+
+        @keyframes float-vue {
+          0% {
+            transform: translate(calc(-50% + 0px), 30px) rotate(-3deg);
+          }
+          20% {
+            transform: translate(calc(-50% + 10px), 10px) rotate(7deg);
+          }
+          40% {
+            transform: translate(calc(-50% - 10px), 48px) rotate(-0.5deg);
+          }
+          60% {
+            transform: translate(calc(-50% + 12px), 10px) rotate(15deg);
+          }
+          80% {
+            transform: translate(calc(-50% - 6px), 46px) rotate(-10deg);
+          }
+          100% {
+            transform: translate(calc(-50% + 0px), 30px) rotate(-3deg);
+          }
+        }
+
+
+        @keyframes float-sass {
+          0% {
+            transform: translate3d(0px, 48px, 0px) rotate(-6deg) scale(1);
+          }
+          15% {
+            transform: translate3d(6px, 42px, 0px) rotate(5deg) scale(1.002);
+          }
+          35% {
+            transform: translate3d(-10px, 56px, 0px) rotate(-8deg) scale(0.998);
+          }
+          55% {
+            transform: translate3d(8px, 38px, 0px) rotate(6deg) scale(1.001);
+          }
+          75% {
+            transform: translate3d(-4px, 56px, 0px) rotate(-4deg) scale(0.999);
+          }
+          100% {
+            transform: translate3d(0px, 48px, 0px) rotate(-6deg) scale(1);
+          }
+        }
+
+        @keyframes float-js {
+          0% {
+            transform: translate3d(0px, 20px, 0px) rotate(0deg) scale(1);
+          }
+          20% {
+            transform: translate3d(-10px, 14px, 0px) rotate(-6deg) scale(1.002);
+          }
+          40% {
+            transform: translate3d(0px, 26px, 0px) rotate(5deg) scale(0.998);
+          }
+          60% {
+            transform: translate3d(-8px, 14px, 0px) rotate(-2deg) scale(1.001);
+          }
+          80% {
+            transform: translate3d(6px, 26px, 0px) rotate(5deg) scale(0.999);
+          }
+          100% {
+            transform: translate3d(0px, 20px, 0px) rotate(0deg) scale(1);
+          }
+        }
+
+
+
+      }
+    }
+  }
+
+  .faqSection {
+    padding: 60px 24px 80px;
+    .faqImg {
+      display: none;
+    }
+    .faqContent {
+      width: 100%;
+      padding-top: 0;
+      & > p {
+        text-align: center;
+      }
+      .faqList {
+        width: 100%;
+      }
+    }
+  }
+
+  .contactMeSection {
+    padding: 60px 24px;
+
+    .contactContents {
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+
+      .contactButton {
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+
+
+// 미디어쿼리 (모바일)
+@media (max-width: $breakpoint-mobile) {
+
+  .homeThumbnail {
+    padding-bottom: 24px;
+    .mainWrap {
+      padding: 0 24px;
+      justify-content: center;
+
+      .mainTextArea {
+        gap: 20px;
+
+        .mainTitle {
+          font-size: 64px;
+        }
+        .mainDesc {
+          display: inline-flex;
+          flex-direction: column;
+        }
+      }
+      .mainImageArea {
+        width: 100%;
+        height: 300px;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        > * {
+          margin: 0 !important;
+          height: 240px !important;
+        }
+
+        canvas {
+          width: 240px !important;
+          height: 240px !important;
+        }
+      }
+    }
+  }
+
+  .introSection {
+    padding: 80px 24px;
+    & > h3 {
+      font-size: 18px;
+    }
+    & > p {
+      font-size: 14px;
+      letter-spacing: -0.4px;
+    }
+
+    .introBtnWrap {
+      & > button {
+        width: 120px;
+        min-height: 40px;
+        font-size: 14px;
+
+        &.tmiSelector {
+          position: relative;
+          cursor: pointer;
+
+          .tmiIcon {
+            margin-left: 4px;
+
+            path {
+              fill: $fontColor;
+            }
+          }
+
+          .tmiDropdown {
+            ul {
+              width: 120px;
+
+              li {
+                width: 100%;
+                height: 40px;
+                font-size: 14px;
+                line-height: 40px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .portfolioSection {
+    padding: 80px 24px;
+    .portfolioWrap {
+      .portfolioMenu {
+        & > li {
+          font-size: 14px;
+        }
+      }
+      .portfolioList {
+        flex-direction: column;
+        height: auto;
+        gap: 12px;
+        .portfolioLeftCol,
+        .portfolioRightCol {
+          gap: 12px;
+          width: 100%;
+          .portfolioItem {
+            width: 100%;
+            height: auto;
+            padding: 20px;
+            gap: 12px;
+            .portfolioDetail {
+              & > h6 {
+                font-size: 15px;
+                margin-bottom: 16px;
+              }
+            }
+
+            &.more {
+              .portfolioDetail {
+                gap: 8px;
+                & > img {
+                  width: 24px;
+                  height: 24px;
+                }
+
+                & > p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .contactMeSection {
+    padding: 60px 24px;
   }
 }

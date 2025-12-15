@@ -78,29 +78,18 @@ function RotatingBox() {
 }
 
 export function ThreeCube() {
-    const MIN_WIDTH = 500;
-    const MIN_HEIGHT = 422;
-    const MAX_WIDTH = 500;
-    const MAX_HEIGHT = 422;
-
     return (
         <div
             style={{
-                width: '100%',
                 height: '100%',
-                minWidth: MIN_WIDTH,
-                minHeight: MIN_HEIGHT,
-                maxWidth: MAX_WIDTH,
-                maxHeight: MAX_HEIGHT,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
                 overflow: 'visible',
-                margin: '0 auto',
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'flex-end'
             }}
         >
             <Canvas
-                style={{ width: '100%', height: '100%' }}
+                style={{ width: '100%', height: '100%'}}
                 camera={{ position: [0, 0, 360], fov: 70 }}
                 onCreated={({ gl }) => {
                     // gl은 런타임에 WebGLRenderer일 가능성이 크므로 안전하게 단언(unknown -> 인터섹션)

@@ -232,21 +232,21 @@ $breakpoint-desktop: 1824px;
 
 // 미디어쿼리
 @media (max-width: $breakpoint-tablet) {
-  .main-header {
-    padding: 1.6rem 2.4rem;
+  .mainHeader {
+    padding: 16px 24px;
 
-    .logo-container {
+    .logoContainer {
       .logo {
-        width: 3.6rem;
-        height: 3.6rem;
+        width: 36px;
+        height: 36px;
       }
     }
 
-    .pc-nav {
+    .pcNav {
       display: none;
     }
 
-    .mobile-nav {
+    .mobileNav {
       display: inline-flex;
     }
   }

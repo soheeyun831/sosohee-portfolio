@@ -410,9 +410,9 @@ export default function Home() {
         </div>
       </article>
       <article className={S.contactMeSection}>
-        <div>
-          <h3>Contact Me</h3>
-          <button>Want to work with me?</button>
+        <div className={S.contactContents}>
+          <h3 className={S.contactTitle}>Contact Me</h3>
+          <button className={S.contactButton}>Want to work with me?</button>
         </div>
       </article>
     </section>

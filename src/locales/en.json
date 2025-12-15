@@ -22,38 +22,38 @@
     "skillLastMessage" : "Ready to work with you",
     "faq": {
       "selfIntroduction": {
-        "title": "자기소개",
-        "content": "UI/UX 전공인 프론트엔드 개발자 윤소희입니다..\n제가 디자인을 알고, 마크업을 아는 만큼 \n디자이너와 UI/UX 관련 커뮤니케이션이 쉽게 오갑니다. \n디자이너들이 지금까지 개발을 몰라 답답했던 부분을 설명하며 이해하는 것을 돕고 그들이 원하는 만큼 아웃풋을 만들기 위해 노력합니다. \n기능적으로 어려운 일이 생겨도 디자이너의 맘을 알기에 안된다는 말보다는 차선 안을 제시합니다. \nFront-end 개발자가 디자인 출신인 것은 장점이라 생각하지만, \n'웹 디자인 출신 개발자'라는 말보다는 \n'디자인을 이해하는 Front-End 개발자'가 되기 위해 학점은행제를 통한 컴퓨터공학 학사학위를 공부 중입니다",
+        "title": "Self-Introduction",
+        "content": "Prioritizing user experience above all else,\nI am Yoon Sohee, a front-end developer who values both convenience and aesthetic appeal.",
         "id": 1,
         "isOpen": false
       },
       "conversion": {
-        "title": "디자인에서 개발로 전향된 사유",
-        "content": "",
+        "title": "Reasons for shifting from design to development",
+        "content": "The reason I became a developer was because there was an answer.\nI learned design starting in middle school.\nWhat I felt while doing design was that [it was highly subjective].\nDevelopment was great because it had the first answer: [the functionality works properly]. I enjoyed the process of refining the quality of my answers through refactoring, which is why I kept doing it.",
         "id": 2,
         "isOpen": false
       },
       "circumstances": {
-        "title": "프로그래밍을 시작한 경위",
-        "content": "",
+        "title": "How I Started Programming",
+        "content": "What I realized while designing is that it's highly subjective.\nI took a markup-related class in college, and I was fascinated by how actions triggered and pages transitioned.\nLater, when I attended a markup and jQuery academy, I found it easier and more enjoyable than I had imagined.\nThinking that this level of skill was enough to venture into bigger waters, I transitioned to front-end development. I felt joy when I explored new things, learned, pondered, and finally produced an output.",
         "id": 3,
         "isOpen": false
       },
       "studyMethod": {
-        "title": "본인의 개발 학습 방법",
-        "content": "",
+        "title": "My Personal Development Learning Method",
+        "content": "I enjoy creating toy projects using my limited skills.\nWhen I tried to develop the habit of using only JavaScript after relying solely on jQuery, I made a ladder-climbing project. When I started studying Vue, I created a household ledger and a Trello admin project.\nI read books and follow examples, but there's a lot I don't understand.\nEven so, I follow along, but it wasn't fun.\nHowever, when I create a project by applying what I've learned, I grasp concepts, think, ponder, and search repeatedly. I keep writing down various solutions in my notebook, try them out, and repeat the process.",
         "id": 4,
         "isOpen": false
       },
       "value": {
-        "title": "업무 경험중 가장 가치가 있었던 경험",
-        "content": "",
+        "title": "The most valuable experience in my work history",
+        "content": "Every time I learn something new and release it for commercial use, I feel it holds value.\nDuring the height of jQuery's popularity, I launched a service using Vue and Nuxt.\nIt was the project with the highest engagement I'd worked on to date, and since it was my first time using Vue, I was eager to develop it as cleanly as possible. I consulted extensively with other developers and tested diligently.\nThe new structure and different usage patterns presented challenges, but despite the larger scale compared to previous projects, fewer issues arose.",
         "id": 5,
         "isOpen": false
       },
       "difficult": {
-        "title": "어려움을 극복하기 위한 방법",
-        "content": "",
+        "title": "Methods to overcome difficulties",
+        "content": "We worked on a project called Jipdak Partial Construction.\nThis was an interior brokerage platform that had to be completed within a little over two months, including QA.\nSince we had only used Vue.js before, we had many concerns about server-side rendering.\nVue.js (vue-cli) is fundamentally built as a SPA (Single Page Application) project, which is disadvantageous for search engine optimization.\nWhile there were several solutions available within Vue.js itself, I decided to develop using Nuxt.js. This choice was recommended in the official Vue.js guide and had also been mentioned during my frontend studies.\nSurprisingly, the development approach with Vue.js wasn't significantly different, and it actually provided an environment where I could focus on development.\nAs a result, server-side rendering was properly implemented, and we completed the project within a short deadline with minimal issues.\nThe reason I shared this case study is that it demonstrated how challenging a better approach, rather than stubbornly sticking to what I already knew, led to a superior outcome.",
         "id": 6,
         "isOpen": false
       }
